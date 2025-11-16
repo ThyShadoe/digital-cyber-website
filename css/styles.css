@@ -1,0 +1,78 @@
+:root {
+  --background1: #eef4ed;
+  --foreground1: #134074;
+  --foreground2: #13315C;
+  --foreground3: #0B2545;
+  --radius: 6px;
+  --gap: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+}
+
+.container {
+  background: var(--foreground1);
+  margin-inline: auto;
+  padding: 14px;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+  font-size: clamp(36px, 2vw, 48px);
+}
+
+.title.secondary {
+  font-family: "Merriweather";
+  font-weight: bold;
+  color: var(--foreground1);
+}
+
+.hero {
+  font-family: "Merriweather", sans-serif;
+  font-weight: bold;
+  margin: auto;
+  text-align: left;
+  width: 50%;
+  padding-top: 10%;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  color: #08111f;
+  font-weight: 700;
+  padding: 10px 14px;
+  border: 12px;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
