@@ -3,7 +3,7 @@
   --foreground1: #134074;
   --foreground2: #13315C;
   --foreground3: #0B2545;
-  --radius: 6px;
+  --radius: 16px;
   --gap: 14px;
 }
 
@@ -24,6 +24,13 @@ body {
   color: var(--txt);
 }
 
+img {
+  border-radius: var(--radius);
+  width: 50%;
+  height: auto;
+  float: right;
+}
+
 .container {
   background: var(--foreground1);
   margin-inline: auto;
@@ -42,6 +49,7 @@ body {
 .brand {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  color: var(--background1);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -49,11 +57,12 @@ body {
 
 .title {
   font-size: clamp(36px, 2vw, 48px);
+  cursor: pointer;
 }
 
 .title.secondary {
-  font-family: "Merriweather";
-  font-weight: bold;
+  font-family: "Merriweather:bi";
+  font-size: clamp(48px, 2vw, 56px);
   color: var(--foreground1);
 }
 
