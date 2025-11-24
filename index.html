@@ -9,43 +9,56 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:800|Merriweather:bi,b" rel="stylesheet">
 </head>
 
-<body>
-  <header>
-    <div class="container row">
-      <div class="brand">
-        <div class="logo">
-          <img src="" alt="">
-        </div>
-        <div class="title" onclick="window.location.href= './index.html';">DIGIWIZE</div>
+<header>
+  <div class="container row">
+    <div class="brand">
+      <div class="logo">
+        <img src="path/to/logo.png" alt="DIGIWIZE Logo">
       </div>
-      <div class="row">
-        <button class="btn secondary" id="menuBtn" title="Learn more"
-          onclick="window.location.href= './pages/content.html';">
-          <span>Articles</span>
-        </button>
-        <button class="btn" id="menuBtn" title="Have questions? Contact us"
-          onclick="window.location.href= './pages/form.html';">
-          <span>Contact Us</span>
-        </button>
-      </div>
+      <div class="title" onclick="window.location.href= './index.html';">DIGIWIZE</div>
     </div>
-  </header>
+    <div class="row">
+      <button class="btn" title="Learn more" onclick="window.location.href= './pages/content.html';">
+        <span>Articles</span>
+      </button>
+      <button class="btn" title="Find more resources" onclick="window.location.href= './pages/content.html';">
+        <span>Resources</span>
+      </button>
+      <button class="btn" title="Have questions? Contact us" onclick="window.location.href= './pages/form.html';">
+        <span>Contact Us</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<body>
 
   <main>
-    <div class="row">
-      <div class="hero">
-        <div class="title">Learn to Navigate the Web</div>
-        <div class="title secondary">the RIGHT way.</div>
-      </div>
-      <div class="hero image">
-        <img src="./images/bliss.jpg" alt="an image of bliss.">
+    <div class="hero">
+      <div class="title">Navigate the Web</div>
+      <div class="title secondary">the RIGHT way.</div>
+      <p>Explore articles, gain insights, and connect with a community of like-minded individuals.</p>
+      <div class="hero btn">
+        <button class="btn" onclick="window.location.href='./pages/get-started.html';">
+          <span>Get Started</span>
+        </button>
       </div>
     </div>
   </main>
 
-  <footer>
-
-  </footer>
 </body>
+<footer>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>If you have any questions, feel free to reach out via our <a href="./pages/form.html">Contact Form</a>.</p>
+    <p>© 2025 DIGIWIZE. All rights reserved.</p>
+    <nav>
+      <ul>
+        <li><a href="./pages/terms.html">Terms of Service</a></li>
+        <li><a href="./pages/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
 
 </html>
