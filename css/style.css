@@ -32,6 +32,8 @@
     color 0.5s;
 }
 
+/* FONT STYLES */
+
 .special-gothic-expanded-one-regular {
   font-family: "Special Gothic Expanded One", sans-serif;
   font-weight: 400;
@@ -77,6 +79,17 @@ header:has(#dark:checked) {
   color: var(--highlight);
 }
 
+.header-card {
+  background-color: var(--highlight);
+  border-radius: var(--radius);
+  border: 3px solid var(--highlight);
+  font-size: clamp(24px, 2vw, 32px);
+  padding: 10px;
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
 body {
   background-color: var(--background);
   background-size: 50px 50px;
@@ -92,7 +105,7 @@ figure {
 
 figcaption {
   color: var(--primary-text);
-  padding-left: 5px;
+  padding-left: 15px;
   text-align: justify;
   text-justify: inter-word;
 }
@@ -116,6 +129,10 @@ input[type="checkbox"] {
   padding: 10px 14px;
   border: 12px;
   cursor: pointer;
+}
+
+.btn.article {
+  border-radius: var(--radius2);
 }
 
 .btn.secondary {
@@ -177,8 +194,26 @@ input[type="checkbox"] {
 }
 
 .info-content img {
-  width: 256px;
-  height: 256px;
+  width: 100%;
+  max-width: 128px;
+  max-height: 128px;
+}
+
+.form {
+  border-radius: var(--radius);
+  background-color: var(--background);
+  padding: 15px;
+}
+
+input[type="text"] {
+  border: 3px solid var(--foreground);
+  border-radius: var(--radius2);
+  padding: 12px;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  cursor: pointer;
 }
 
 .footer-text {
