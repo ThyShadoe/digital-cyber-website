@@ -1,44 +1,88 @@
 :root {
   /* enter variables here */
-  --bg: white;
-  --fg: black;
-  --card: whitesmoke;
-  --text: black;
+  --background: #f9f9f9;
+  --foreground: #1a1a1a;
+  --card: #f9f9f9;
+  --primary-text: #1a1a1a;
+  --secondary-text: #4a4a4a;
+  --highlight: #0066cc;
+  --border: #0066cc;
+  --accent: #ff4500;
   --radius: 14px;
+  --radius2: 11px;
 }
 
 :root:has(#dark:checked) {
-  --bg: black;
-  --fg: white;
-  --card: #161717;
-  --text: white;
+  --background: #121212;
+  --foreground: #e0e0e0;
+  --card: #121212;
+  --primary-text: #e0e0e0;
+  --secondary-text: #b0b0b0;
+  --highlight: #1e90ff;
+  --border: #e0e0e0;
+  --accent: #ffa500;
   --radius: 14px;
 }
 
 * {
   box-sizing: border-box;
+  transition:
+    background-color 0.5s,
+    border 0.5s,
+    color 0.5s;
+}
+
+.special-gothic-expanded-one-regular {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
 header {
-  background-color: royalblue;
+  background-color: var(--border);
   border-radius: var(--radius);
+  border: 3px solid var(--border);
+  max-width: 1200px;
+  margin: auto;
   margin-bottom: 10px;
 }
 
+header:has(#dark:checked) {
+  background-color: var(--background);
+  border-radius: var(--radius);
+  border: 3px solid var(--border);
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.logo {
+  margin: auto;
+}
+
+.title {
+  font-size: clamp(36px, 2vw, 48px);
+  color: var(--primary-text);
+  cursor: pointer;
+}
+
+.title:has(#dark:checked) {
+  color: var(--highlight);
+}
+
 body {
-  background-color: beige;
-  background-size: 60px 60px;
+  background-color: var(--background);
+  background-size: 50px 50px;
   background-image:
     linear-gradient(to right, grey 1px, transparent 1px),
     linear-gradient(to bottom, grey 1px, transparent 1px);
-}
-
-body:has(#dark:checked) {
-  background-color: black;
-  background-size: 60px 60px;
-  background-image:
-    linear-gradient(to right, gray 1px, transparent 1px),
-    linear-gradient(to bottom, gray 1px, transparent 1px);
 }
 
 figure {
@@ -47,13 +91,45 @@ figure {
 }
 
 figcaption {
-  color: var(--text);
+  color: var(--primary-text);
   padding-left: 5px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 img {
-  border-radius: var(--radius);
-  border: 3px solid var(--fg);
+  border-radius: var(--radius2);
+  border: 3px solid var(--foreground);
+}
+
+input[type="checkbox"] {
+  border: 3px solid var(--foreground);
+  padding: 10px 14px;
+  border: 12px;
+  cursor: pointer;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  font-weight: 800;
+  padding: 10px 14px;
+  border: 12px;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 3px solid var(--foreground);
+  color: var(--primary-text);
+  border-radius: var(--radius2);
+}
+
+.btn.secondary:hover {
+  background-color: var(--accent);
+  border: 3px solid var(--accent);
+  color: #1a1a1a;
+  border-radius: var(--radius2);
 }
 
 .container {
@@ -69,36 +145,30 @@ img {
   justify-content: space-between;
 }
 
-.logo {
-  margin: auto;
-}
-
-.title {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(36px, 2vw, 48px);
-  font-weight: bolder;
-  color: white;
-  cursor: pointer;
-}
-
 .card {
   background-color: var(--card);
   border-radius: var(--radius);
-  border: 3px solid royalblue;
+  border: 3px solid var(--border);
+  max-width: 1200px;
+  margin: auto;
   margin-bottom: 10px;
 }
 
 .hero-content {
-  text-align: center;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 128px;
+  padding-bottom: 128px;
+  padding-left: 24px;
+  align-items: center;
 }
 
 .hero-text {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(36px, 2vw, 48px);
+  font-size: clamp(32px, 2vw, 48px);
   font-weight: bolder;
-  color: darkslateblue;
+  color: var(--primary-text);
+}
+
+.hero-content p {
+  color: var(--primary-text);
 }
 
 .info-content {
@@ -108,10 +178,10 @@ img {
 
 .info-content img {
   width: 256px;
+  height: 256px;
 }
 
 .footer-text {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(10px, 2vw, 12px);
   font-style: italic;
   color: gray;

@@ -5,20 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
     <link href="css/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <header>
     <div class="container row">
       <div class="brand">
         <div class="logo">
-          <div class="title">DIGIWIZE</div>
+          <div class="title special-gothic-expanded-one-regular">DIGIWIZE</div>
         </div>
       </div>
-      <div class="btn">
-        <input id="dark" type="checkbox" />
-        <label id="theme-toggle" for="dark">
-          <span>Light</span><span>Dark</span> mode
-        </label>
+      <div class="row open-sans">
+        <button class="btn secondary">
+          <span>About</span>
+        </button>
+        <button class="btn secondary">
+          <span>Resources</span>
+        </button>
+        <button class="btn secondary">
+          <span>Contact Us</span>
+        </button>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="dark">
+            <input type="checkbox" id="dark" />
+          </label>
+        </div>
       </div>
     </div>
   </header>
@@ -26,14 +46,27 @@
   <body>
     <section>
       <div class="hero-content card">
-        <div class="hero-text">
+        <div class="hero-text special-gothic-expanded-one-regular">
           Browse The <br />
-          Digital World <br />
-          Safely and Securely
+        </div>
+        <div
+          class="hero-text special-gothic-expanded-one-regular"
+          style="color: var(--highlight)"
+        >
+          DIGITAL WORLD <br />
+        </div>
+        <div class="hero-text special-gothic-expanded-one-regular">
+          Safely and Securely. <br />
+        </div>
+        <div class="open-sans">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
         </div>
       </div>
     </section>
-    <section>
+    <section class="open-sans">
       <div class="info-content card">
         <div>
           <figure>
