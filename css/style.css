@@ -1,15 +1,16 @@
+/* Root Variables */
 :root {
-  /* enter variables here */
   --background: #f9f9f9;
   --foreground: #1a1a1a;
   --card: #f9f9f9;
   --primary-text: #1a1a1a;
   --secondary-text: #4a4a4a;
   --highlight: #0066cc;
-  --border: #0066cc;
+  --border: #1a1a1a;
   --accent: #ff4500;
   --radius: 14px;
   --radius2: 11px;
+  --grid-size: 40px 40px;
 }
 
 :root:has(#dark:checked) {
@@ -24,6 +25,7 @@
   --radius: 14px;
 }
 
+/* Global Styles */
 * {
   box-sizing: border-box;
   transition:
@@ -32,8 +34,7 @@
     color 0.5s;
 }
 
-/* FONT STYLES */
-
+/* Font Styles */
 .special-gothic-expanded-one-regular {
   font-family: "Special Gothic Expanded One", sans-serif;
   font-weight: 400;
@@ -47,10 +48,11 @@
   font-variation-settings: "wdth" 100;
 }
 
+/* Header / Navigation Bar */
 header {
-  background-color: var(--border);
+  background-color: var(--highlight);
   border-radius: var(--radius);
-  border: 3px solid var(--border);
+  border: 3px solid var(--highlight);
   max-width: 1200px;
   margin: auto;
   margin-bottom: 10px;
@@ -58,8 +60,19 @@ header {
 
 header:has(#dark:checked) {
   background-color: var(--background);
-  border-radius: var(--radius);
   border: 3px solid var(--border);
+  border-radius: var(--radius);
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.header-card {
+  background-color: var(--highlight);
+  border-radius: var(--radius);
+  border: 3px solid var(--highlight);
+  font-size: clamp(24px, 2vw, 32px);
+  padding: 10px;
   max-width: 1200px;
   margin: auto;
   margin-bottom: 10px;
@@ -76,28 +89,36 @@ header:has(#dark:checked) {
 }
 
 .title:has(#dark:checked) {
-  color: var(--highlight);
+  font-size: clamp(36px, 2vw, 48px);
+  color: var(--primary-text);
+  cursor: pointer;
 }
 
-.header-card {
-  background-color: var(--highlight);
-  border-radius: var(--radius);
-  border: 3px solid var(--highlight);
-  font-size: clamp(24px, 2vw, 32px);
-  padding: 10px;
-  max-width: 1200px;
-  margin: auto;
-  margin-bottom: 10px;
+/* Checkbox Style */
+input[type="checkbox"] {
+  appearance: none;
+  background-color: var(--foreground);
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
+input[type="checkbox"]:hover {
+  background-color: var(--accent);
+}
+
+/* Body */
 body {
   background-color: var(--background);
-  background-size: 50px 50px;
+  background-size: var(--grid-size);
   background-image:
     linear-gradient(to right, grey 1px, transparent 1px),
     linear-gradient(to bottom, grey 1px, transparent 1px);
+  height: 100vh;
 }
 
+/* Figures */
 figure {
   display: flex;
   align-items: center;
@@ -115,19 +136,12 @@ img {
   border: 3px solid var(--foreground);
 }
 
-input[type="checkbox"] {
-  border: 3px solid var(--foreground);
-  padding: 10px 14px;
-  border: 12px;
-  cursor: pointer;
-}
-
+/* Buttons */
 .btn {
   appearance: none;
   border: none;
   font-weight: 800;
   padding: 10px 14px;
-  border: 12px;
   cursor: pointer;
 }
 
@@ -149,6 +163,7 @@ input[type="checkbox"] {
   border-radius: var(--radius2);
 }
 
+/* Layout Helpers */
 .container {
   padding: 16px;
   justify-content: space-between;
@@ -171,9 +186,10 @@ input[type="checkbox"] {
   margin-bottom: 10px;
 }
 
+/* Hero Section */
 .hero-content {
-  padding-top: 128px;
-  padding-bottom: 128px;
+  padding-top: 256px;
+  padding-bottom: 256px;
   padding-left: 24px;
   align-items: center;
 }
@@ -188,34 +204,47 @@ input[type="checkbox"] {
   color: var(--primary-text);
 }
 
+/* Info Content */
 .info-content {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  color: var(--primary-text);
+  padding: 10px 10px 24px 10px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .info-content img {
   width: 100%;
+  height: 100%;
   max-width: 128px;
-  max-height: 128px;
 }
 
+/* Form Section */
 .form {
   border-radius: var(--radius);
-  background-color: var(--background);
   padding: 15px;
 }
 
 input[type="text"] {
-  border: 3px solid var(--foreground);
+  background-color: var(--foreground);
+  color: var(--background);
+  border: none;
   border-radius: var(--radius2);
   padding: 12px;
   cursor: pointer;
 }
 
 input[type="submit"] {
+  background-color: var(--highlight);
+  border: none;
+  border-radius: var(--radius2);
+  padding: 12px;
+  width: 180px;
+  height: 40px;
+  margin: 10px auto 0;
   cursor: pointer;
 }
 
+/* Footer Section */
 .footer-text {
   font-size: clamp(10px, 2vw, 12px);
   font-style: italic;
