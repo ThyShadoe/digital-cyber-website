@@ -36,6 +36,119 @@
     color 0.5s;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 599px) {
+  /* Reduce horizontal padding */
+  .hero-content,
+  .info-content,
+  .form {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Stack navigation items */
+  header .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* hide the native checkbox */
+  .nav-toggle {
+    display: none;
+  }
+
+  /* hamburger icon */
+  .nav-toggle-label {
+    display: none; /* shown only on small screens */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  .nav-toggle-label .hamburger,
+  .nav-toggle-label .hamburger::before,
+  .nav-toggle-label .hamburger::after {
+    content: "";
+    background: #333;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s;
+  }
+  .nav-toggle-label .hamburger {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .nav-toggle-label .hamburger::before {
+    top: -10px;
+  }
+  .nav-toggle-label .hamburger::after {
+    top: 10px;
+  }
+
+  /* navigation list */
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  /* hide menu on small screens until toggled */
+  @media (max-width: 768px) {
+    .nav-toggle-label {
+      display: block;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      position: absolute;
+      top: 100%; /* just below the header */
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 1rem;
+      display: none; /* hidden by default */
+    }
+
+    /* show menu when checkbox is checked */
+    .nav-toggle:checked + .nav-toggle-label + .nav-links {
+      display: flex;
+    }
+  }
+
+  /* Hero text scales down */
+  .hero-text {
+    font-size: clamp(24px, 5vw, 36px);
+  }
+
+  /* Cards take full width */
+  .card {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Figure layout – image on top */
+  figure {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  figcaption {
+    padding-left: 0;
+    margin-top: 8px;
+  }
+
+  /* Form fields full width */
+  input[type="text"] {
+    font-size: 0.9rem;
+  }
+}
+
 /* Font Styles */
 .special-gothic-expanded-one-regular {
   font-family: "Special Gothic Expanded One", sans-serif;
@@ -55,7 +168,8 @@ header {
   background-color: var(--highlight);
   border-radius: var(--radius);
   border: 3px solid var(--foreground);
-  box-shadow: 5px 5px var(--border);
+  box-shadow: 4px 4px var(--border);
+  padding: 10px;
   max-width: 1200px;
   margin: auto;
   margin-bottom: 24px;
@@ -74,7 +188,7 @@ header:has(#dark:checked) {
   background-color: var(--highlight);
   border: 3px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: 5px 5px var(--border);
+  box-shadow: 4px 4px var(--border);
   color: var(--primary-text);
   font-size: clamp(24px, 2vw, 32px);
   padding: 10px;
@@ -104,6 +218,70 @@ header:has(#dark:checked) {
   color: var(--accent);
 }
 
+/* hide the native checkbox */
+.nav-toggle {
+  display: none;
+}
+
+/* hamburger icon */
+.nav-toggle-label {
+  display: none; /* shown only on small screens */
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+.nav-toggle-label .hamburger,
+.nav-toggle-label .hamburger::before,
+.nav-toggle-label .hamburger::after {
+  content: "";
+  background: #333;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s;
+}
+.nav-toggle-label .hamburger {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-toggle-label .hamburger::before {
+  top: -10px;
+}
+.nav-toggle-label .hamburger::after {
+  top: 10px;
+}
+
+/* navigation list */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* hide menu on small screens until toggled */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* just below the header */
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem;
+    display: none; /* hidden by default */
+  }
+
+  /* show menu when checkbox is checked */
+  .nav-toggle:checked + .nav-toggle-label + .nav-links {
+    display: flex;
+  }
+}
+
 /* Checkbox Style */
 input[type="checkbox"] {
   appearance: none;
@@ -111,6 +289,7 @@ input[type="checkbox"] {
   border-radius: 50px;
   width: 24px;
   height: 24px;
+  margin-top: 8px;
   cursor: pointer;
 }
 
@@ -152,6 +331,7 @@ img {
   border: none;
   font-weight: 800;
   font-size: clamp(12px, 2vw, 16px);
+  min-height: 44px;
   padding: 10px 14px;
   cursor: pointer;
 }
@@ -162,23 +342,17 @@ img {
 
 .btn.secondary {
   background: transparent;
-  border: 3px solid transparent;
   color: var(--foreground);
   border-radius: var(--radius2);
 }
 
 .btn.secondary:hover {
   background-color: var(--accent);
-  border: 3px solid #1a1a1a;
   color: #1a1a1a;
   border-radius: var(--radius2);
 }
 
 /* Layout Helpers */
-.container {
-  padding: 16px;
-  justify-content: space-between;
-}
 
 .row {
   display: flex;
@@ -192,7 +366,7 @@ img {
   background-color: var(--card);
   border-radius: var(--radius);
   border: 3px solid var(--border);
-  box-shadow: 5px 5px var(--border);
+  box-shadow: 4px 4px var(--border);
   max-width: 1200px;
   margin: auto;
   margin-bottom: 20px;
@@ -230,6 +404,17 @@ img {
   min-width: 128px;
 }
 
+/* Details & Summary */
+details {
+  padding: 16px;
+  color: var(--primary-text);
+}
+
+summary {
+  font-size: clamp(18px, 2vw, 24px);
+  margin: auto;
+}
+
 /* Form Section */
 .form {
   border-radius: var(--radius);
@@ -239,11 +424,10 @@ img {
 input[type="text"] {
   background-color: var(--foreground);
   color: var(--background);
-  display: block;
   border: none;
   border-radius: var(--radius2);
-  width: 400px;
-  padding: 12px;
+  width: 100%;
+  padding: 12px 14px;
   cursor: pointer;
 }
 
